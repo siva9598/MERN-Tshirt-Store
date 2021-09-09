@@ -102,7 +102,6 @@ exports.updateProduct = (req, res) => {
           error: "File size too big!",
         });
       }
-      //product.photo.data
       product.photo.data = fs.readFileSync(file.photo.path);
       product.photo.contentType = file.photo.type;
     }
