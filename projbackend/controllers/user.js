@@ -36,7 +36,7 @@ exports.putUser = (req, res) => {
 };
 
 exports.userPurchaseList = (req, res) => {
-  Oder.find({ user: req.profile._id })
+  Order.find({ user: req.profile._id })
     .populate("user", "_id name")
     .exec((err, order) => {
       if (err || !order) {

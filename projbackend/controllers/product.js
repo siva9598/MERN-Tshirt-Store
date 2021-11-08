@@ -6,7 +6,7 @@ const fs = require("fs");
 exports.getProductById = (req, res, next, id) => {
   console.log(id);
   Product.findById(id)
-    .populate("category") // fix the problem with populate function in all instances
+    // .populate("category") // fix the problem with populate function in all instances
     .exec((err, product) => {
       if (err) {
         console.log("hello");
