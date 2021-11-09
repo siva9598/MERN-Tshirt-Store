@@ -4,7 +4,7 @@ import Base from "../core/Base";
 const ManageCategories = () => {
   return (
     <Base>
-      <h1 className="text-white">Coming Soon</h1>
+      <h1 className="text-white">TODO</h1>
     </Base>
   );
 };

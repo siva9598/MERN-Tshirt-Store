@@ -104,6 +104,7 @@ const AddProduct = () => {
           placeholder="Name"
           value={name}
         />
+        {/* {console.log(`the value of name :` + name)} */}
       </div>
       <div className="form-group">
         <textarea

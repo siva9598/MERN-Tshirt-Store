@@ -6,6 +6,6 @@ body {
 
 #footer {
   background-color: #efefef;
-  flex: 0 0 50px;
+  flex: 0 0 50px; /*or just height:50px;*/
   margin-top: auto;
 }
