@@ -71,6 +71,8 @@ const Paymentb = ({ products, setReload = (f) => f, reload = undefined }) => {
       processPayment(userId, token, paymentData)
         .then((response) => {
           setInfo({ ...info, success: response.success, loading: false });
+          // console.log("success");
+          // console.log(response);
           const orderData = {
             products: products,
             transaction_id: response.transaction.id,
@@ -84,6 +86,7 @@ const Paymentb = ({ products, setReload = (f) => f, reload = undefined }) => {
         })
         .catch((error) => {
           setInfo({ loading: false, success: false });
+          //console.log(error);
         });
     });
   };
