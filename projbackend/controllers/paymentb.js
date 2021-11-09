@@ -11,8 +11,10 @@ const gateway = new braintree.BraintreeGateway({
 exports.getToken = (req, res) => {
   gateway.clientToken.generate({}, function (err, response) {
     if (err) {
+      //console.log("h1");
       res.status(500).send(err);
     } else {
+      //console.log("h2");
       res.send(response);
     }
   });
@@ -21,6 +23,9 @@ exports.getToken = (req, res) => {
 exports.processPayment = (req, res) => {
   let nonceFromTheClient = req.body.paymentMethodNonce;
   let amountFromTheClient = req.body.amount;
+  // console.log("pay");
+  // console.log(nonceFromTheClient);
+  // console.log(amountFromTheClient);
   gateway.transaction.sale(
     {
       amount: amountFromTheClient,

@@ -6,7 +6,7 @@ const fs = require("fs");
 exports.getProductById = (req, res, next, id) => {
   console.log(id);
   Product.findById(id)
-    // .populate("category") // fix the problem with populate function in all instances
+    //.populate("category") // fix the problem with populate function in all instances
     .exec((err, product) => {
       if (err) {
         console.log("hello");
@@ -102,6 +102,7 @@ exports.updateProduct = (req, res) => {
           error: "File size too big!",
         });
       }
+      //product.photo.data
       product.photo.data = fs.readFileSync(file.photo.path);
       product.photo.contentType = file.photo.type;
     }
@@ -133,6 +134,7 @@ exports.getAllProducts = (req, res) => {
 };
 
 exports.updateStock = (req, res, next) => {
+  //console.log(req.body);
   let myOperations = req.body.order.products.map((prod) => {
     return {
       updateOne: {

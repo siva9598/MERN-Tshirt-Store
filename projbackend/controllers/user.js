@@ -7,6 +7,7 @@ exports.getUserById = (req, res, next, id) => {
       return res.status(400).json({ error: "No user found in DB" });
     }
     req.profile = user;
+    //console.log("user is " + user);
     next();
   });
 };

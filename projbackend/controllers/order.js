@@ -14,6 +14,11 @@ exports.getOrderById = (req, res, next, id) => {
 };
 
 exports.createOrder = (req, res) => {
+  // req.body.order.user = req.profile;
+  // console.log("user:");
+  // console.log(req.profile);
+  // let order = new Order(req.body.order);
+
   req.body.order.user = req.profile;
   const order = new Order(req.body.order);
   order.save((err, order) => {

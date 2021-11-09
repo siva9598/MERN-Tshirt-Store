@@ -22,6 +22,7 @@ exports.signin = (req, res) => {
         .json({ error: "User email does not exist in system" });
     }
     if (!user.authenticate(password)) {
+      console.log("encry_password :" + user.encry_password);
       return res.status(401).json({ error: "Email and password do not match" });
     }
     const token = jwt.sign({ _id: user._id }, process.env.SECRET);
@@ -34,6 +35,7 @@ exports.signin = (req, res) => {
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
+  console.log(errors);
   if (!errors.isEmpty()) {
     return res.status(422).json({ error: errors.array()[0].msg });
   }
@@ -61,6 +63,7 @@ exports.isSignedIn = expressJwt({
 exports.isAuthenticated = (req, res, next) => {
   let checker = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!checker) {
+    //console.log(req.profile);
     return res.status(403).json({ error: "ACCESS DENIED" });
   }
   next();
