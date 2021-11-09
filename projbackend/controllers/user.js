@@ -7,6 +7,7 @@ exports.getUserById = (req, res, next, id) => {
       return res.status(400).json({ error: "No user found in DB" });
     }
     req.profile = user;
+    //console.log("user is " + user);
     next();
   });
 };
@@ -36,7 +37,7 @@ exports.putUser = (req, res) => {
 };
 
 exports.userPurchaseList = (req, res) => {
-  Order.find({ user: req.profile._id })
+  Oder.find({ user: req.profile._id })
     .populate("user", "_id name")
     .exec((err, order) => {
       if (err || !order) {
